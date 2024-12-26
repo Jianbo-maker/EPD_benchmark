@@ -6,4 +6,5 @@ COMING SOON
 
 Embodied Image Quality Assessment for Robotic Intelligence
 
-<img src="E:\科研\IQA\具身智能\ICME论文\Fig2.png" alt="Fig2" style="zoom:50%;" />
+![Fig2](https://github.com/user-attachments/assets/9a530bfe-8968-4bd0-bce5-8544100bd7d9)
+
