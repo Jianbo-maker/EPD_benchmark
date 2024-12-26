@@ -35,133 +35,42 @@ In contrast to traditional IQA image collection methods, embodied AI requires in
 
 Based on a simulated environment **ManiSkill**, a robotic arm acts as an embodied intelligence to perform simple push and pick tasks. For the robot, different quality of image inputs have different impacts on the robot to complete the task, which is also directly related to the performance of the robot.
 
-<div align=center; style="width: 100%>
-      <img style="width:80%" src="figure/exp_imgs.png">
+## HVS & RVS are different
+is a gap between the robot vision system and the human vision system, and the current image quality assessment from the human perspective is limited. 
+<div style="width: 100%; text-align: center; margin:auto;">
+  <img style="width:50%" src="figure/exp_imgs.png">
 </div>
 
-## Leaderboard of CMC-Bench
-Radar maps are shown as a quick glance. Among I2Ts, GPT-4o shows the best perfoemance. Among T2Is, DiffBIR ranks best in terms of **Image** and **Full** but unsupportive at other two modes, while RealVis is the most full-edged model for **Consistency** and PG25 owns the most satisfying **Perecption**.
-<div style="width: 100%; text-align: center; margin:center;">
-  <img style="width:50%" src="fig/radar-i2t.png"><img style="width:50%" src="fig/radar-t2i.png">
-</div>
-
-The leaderboard for I2T and T2I models are shown below. The I2T models are combined with RealVis as T2I, while T2I models are combined with GPT-4o as I2T. For detail on differnet content types, please check our paper.
+## Evaluation
+Comparison of 14 IQA methods for BL (Baseline), FR (Full Reference), NR (No reference) respectively on EPD benchmarks. For detail on differnet content types, please check our paper.
 <div align=center>
 
-
-| **I2T** | Full-FR↑ | Full-NR↑ | Pixel-FR↑ | Pixel-NR↑ | Text-FR↑ | Text-NR↑ | Overall↑ |
-| - | - | - | - | - | - | - | - |
-| GPT-4o | 2.5646 | 2.0415 | 1.9878 | 2.7815 | 1.7805 | 3.4802 | 2.4394 |
-| ShareGPT | 2.5597 | 2.065 | 1.9872 | 2.7618 | 1.7940 | 3.4221 | 2.4316 |
-| Qwen | 2.5530 | 2.0031 | 1.9917 | 2.6748 | 1.7832 | 3.3679 | 2.3956 |
-| MPlugOwl-2 | 2.5556 | 2.0003 | 1.9902 | 2.6413 | 1.7891 | 3.3299 | 2.3844 |
-| LLAVA | 2.5484 | 1.9747 | 1.9815 | 2.6373 | 1.7766 | 3.3695 | 2.3813 |
-| InstructBLIP | 2.5489 | 1.9153 | 1.9858 | 2.5593 | 1.7796 | 3.2888 | 2.3463 |
-
-
-
-| **T2I** | Full-FR↑ | Full-NR↑ | Image-FR↑ | Image-NR↑ | Pixel-FR↑ | Pixel-NR↑ | Text-FR↑ | Text-NR↑ | Overall↑ |
+ 
+| **Metric** | SRCC↑|  PLCC↑| KRCC↑| PUSH_SRCC↑| PUSH_PLCC↑| PUSH_KRCC↑| PICK_SRCC↑| PICK_PLCC↑| PICK_KRCC↑ |
 | - | - | - | - | - | - | - | - | - | - | 
-| DiffBIR | 2.9194 | 2.5803 | 2.8630 | 1.7342 | - | - | - | - | 2.6466 |
-| PASD | 2.7270 | 2.2256 | 2.6378 | 2.0101 | - | - | - | - | 2.4942 |
-| PG25 | 2.0716 | 2.9194 | 1.9612 | 2.9935 | 1.7418 | 3.6260 | 1.7382 | 3.7299 | 2.3579 |
-| RealVis | 2.5646 | 2.0415 | 2.5033 | 1.8098 | 1.9878 | 2.7815 | 1.7805 | 3.4802 | 2.3155 |
-| PG20 | 2.3603 | 2.3695 | 2.2476 | 2.2071 | 1.8883 | 2.6875 | 1.7180 | 3.7438 | 2.2864 |
-| SSD-1B | 2.4939 | 2.0803 | 2.4147 | 1.9308 | 1.9611 | 2.4828 | 1.7753 | 3.4796 | 2.2720 |
-| StableSR | 2.6232 | 1.4368 | 2.6088 | 1.4293 | - | - | - | - | 2.2217 |
-| Dreamlike | 2.5071 | 1.7892 | 2.4226 | 1.5131 | 1.9545 | 2.3038 | 1.7090 | 3.1588 | 2.1626 |
-| Animate | 2.2985 | 1.8469 | 2.2522 | 1.6148 | 1.8246 | 2.4324 | 1.6983 | 3.4979 | 2.1283 |
-| SDXL | 2.4184 | 1.6837 | 2.3482 | 1.5586 | 1.9103 | 1.9724 | 1.7471 | 3.4225 | 2.1238 |
-| SD15 | 2.4895 | 1.7733 | 2.4163 | 1.5574 | 1.9422 | 2.1444 | 1.6832 | 2.5318 | 2.0891 |
-| InstructPix | 2.1519 | 1.7191 | 2.3457 | 1.2219 | - | - | - | - | 1.9894 |
+|PSNR| 0.1233| 0.1356| 0.0819| 0.0811| 0.0927| 0.0539| 0.0972| 0.1138| 0.0645|
+|SSIM| 0.0597| 0.0635| 0.0396| 0.0633| 0.0716| 0.0417| 0.0228| 0.0275| 0.0152|
+|PieAPP|0.3616| 0.3853| 0.2466| 0.1727| 0.2023| 0.1165| 0.1604| 0.1802| 0.1061|
+|CKDN| 0.6971| 0.6654| 0.5062| 0.2100| 0.2186| 0.1404| 0.3372| 0.3040| 0.2266|
+|IQT |0.5435| 0.5416| 0.3814| 0.3918| 0.3706| 0.2650| 0.5613| 0.5664| 0.3920|
+|AHIQ| 0.4199| 0.4382| 0.2888| 0.2425| 0.2707| 0.1674| 0.3061| 0.3157| 0.2074|
+|DISTS |0.2113 |0.2107| 0.1428| 0.1335| 0.1608| 0.0906| 0.1135| 0.1036| 0.0985|
+|TOPIQ-FR| 0.1265| 0.1232| 0.0845| 0.1615| 0.1684| 0.1113| 0.1207| 0.1185| 0.0794|
+|HyperIQA| 0.3212| 0.3289| 0.2212| 0.3099| 0.2981| 0.2098| 0.4055| 0.3927| 0.2733|
+|DBCNN| 0.1921| 0.2133| 0.1307| 0.0962| 0.1039| 0.0643| 0.1882| 0.1855| 0.1251|
+|MANIQA| 0.5267| 0.5603| 0.3675| 0.2475| 0.2574| 0.1661| 0.5847| 0.5859| 0.4116|
+|CLIPIQA| 0.1821 |0.2160| 0.1218| 0.0750 |0.0893| 0.0503| 0.1464| 0.1497| 0.0978|
+|TempQT| 0.2340| 0.1730| 0.1450| 0.1040| 0.0980| 0.0560| 0.2210| 0.1400| 0.1500|
+|TOPIQ-NR| 0.1253| 0.1193| 0.0828| 0.0995| 0.1043| 0.0667| 0.0846| 0.0602| 0.0568|
 </div>
 
-## Compare against traditional codecs
-
-CMC paradigms demonstrate an advance in terms of most indicators. The lead in Perception is particularly notable, as it surpasses traditional codecs at extremely low bitrates. However, the advantage in consistency is relatively smaller, achieving a reduction of around 30\% in bitrate compared to traditional methods at 0.02 bpp. The DiffBIR decoder generally shows better performance, while RealVis fits A wider range of bitrates.
-
-In summary, we believe that CMC holds a certain advantage over traditional encoding. However, for implementing LMMs into the next generation of visual signal codecs, further optimization is still required for LMM developers.
-
-<div style="width: 100%; text-align: center; margin: center;">
-      <img style="width:100%" src="fig/bitrate.png">
-</div>
-
-## Evaluate your model on CMC-Bench
-
-### Step 0: Preparation
-
-First download the images from our Hugging website, including:
-
-[Ground Truth](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench/blob/main/ground-truth.zip). Decompress all file into `GT` folder in this project.
-
-[Pixel Reference](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench/blob/main/reference-pix.zip). Decompress all file into `Ref/pixel` folder in this project.
-
-[Compressed Image Reference](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench/blob/main/reference-image.zip). Decompress all file into `Ref/image` folder in this project.
-
-Then download the Consistency an Perception evaluation model weight from:
-
-[Consistency](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench/blob/main/topiq-fr.pth). Put it into `Weight` folder in this project.
-
-[Perception](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench/blob/main/topiq-nr.pth). Put it into `Weight` folder in this project.
-
-After process above, please ensure your folder look like:
-
-```
-CMC-Bench
-│
-├── GT
-│   ├── AIGI_DALLE3_000.png, AIGI_DALLE3_001.png ...
-│   
-├── Ref
-│   ├── pixel
-│   │   └── AIGI_DALLE3_000.png, AIGI_DALLE3_001.png ...
-│   └── image
-│       └── AIGI_DALLE3_000.png, AIGI_DALLE3_001.png ...
-│
-└── Weight
-    └── topiq-fr.pth, topiq-nr.pth
-```
-
-### Step 1: I2T model encoding
-
-Use I2T model to transform ground truth image into text.
-
-```
-python script-i2t.py --model_name [your_i2t_name] --model_dir [your_i2t_dictionary]
-```
-
-A csv file including all text input will be generated in your `Text` folder according to `your_i2t_name`. The default script use Qwen for I2T. If you only want to test T2I model, please skip this step and directly use `Text/gpt4v.csv`.
-
-### Step 2: T2I model decoding
-
-Use T2I model to reconstruct text back into image.
-
-```
-python script-t2i.py --mode full --input_path [csv_in_step_1] --model_name [your_t2i_name] --model_dir [your_t2i_dictionary]
-python script-t2i.py --mode image --input_path [csv_in_step_1] --model_name [your_t2i_name] --model_dir [your_t2i_dictionary]
-python script-t2i.py --mode pixel --input_path [csv_in_step_1] --model_name [your_t2i_name] --model_dir [your_t2i_dictionary]
-python script-t2i.py --mode text --input_path [csv_in_step_1] --model_name [your_t2i_name] --model_dir [your_t2i_dictionary]
-```
-
-All decompressed image will be generated in your `Result` folder according to `your_t2i_name`. Four subfolder corresponds to four working mode. The default script use RalVis for T2I. If you only want to test T2I model, please empty the `--input_path `; If you only want to test I2T model please empty the ` --model_name` and ` --model_dir`.
-
-### Step 3: Evaluation
-
-Use fine-tuned quality model to mesure the performance. Check the model name in your `Result` folder, all modes in it will be evaluated. The script can still be evaluated with incomplete modes, but we recommend using all four modes at once.
-
-```
-python script-evaluate.py --target [t2i_name_in_step_2]
-```
-
-After finishing validation, you can submit the results via [e-mail](lcysyzxdxc@sjtu.edu.cn) to get your LMM results on CMC-Bench ! (Noted a valid submission should support at least two among four modes.)
-
-</div>
+**PUSH** means push box subset, and **PICK** means pick box subset.
 
 ## Contact
 
 Please contact any of the first authors of this paper for queries.
 
-- Chunyi Li, `lcysyzxdxc@sjtu.edu.cn`, @lcysyzxdxc
+- Jianbo Zhang, `sjtu5029101@sjtu.edu.cn@sjtu.edu.cn`
 
 ## Citation
 
@@ -169,10 +78,10 @@ If you find our work interesting, please feel free to cite our paper:
 
 ```bibtex
 @misc{li2024cmcbench,
-      title={CMC-Bench: Towards a New Paradigm of Visual Signal Compression}, 
-      author={Chunyi Li and Xiele Wu and Haoning Wu and Donghui Feng and Zicheng Zhang and Guo Lu and Xiongkuo Min and Xiaohong Liu and Guangtao Zhai and Weisi Lin},
+      title={Embodied Image Quality Assessment for Robotic Intelligence}, 
+      author={Jianbo Zhang, Chunyi Li, Liang Yuan, Guoquan Zheng, Jie Hao, Guangtao Zhai},
       year={2024},
-      eprint={2406.09356},
+      ---------------------------------------------------------------------------------------eprint={2406.09356}---------------------------------------------------------,
       archivePrefix={arXiv}
 }
 ```
