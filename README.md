@@ -14,36 +14,29 @@
  </div>
 
  <div>
-  <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>Beijing University of Chemical Technology
+  <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>Beijing University of Chemical Technology.  <sup>*</sup>Corresponding author.
  </div> 
- <div>
-  <sup>*</sup>Corresponding author. 
- </div>
  
  <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:60%" src="figure/Overflow.png">
+      <img style="width:100%" src="figure/Overflow.png">
  </div>
 </div>
 
 <div align="left">
 
-**Why use LMMs for compression?** Large Multimodal Models (LMMs) support the conversion between multiple modalities, where text consumes much less space than image modalities. By cascading Image-to-Text (I2T) and Text-to-Image (T2I) models, images can be compressed and reconstructed from semantic information. This Cross-Modality Compression (CMC) paradigm operates at the semantic level, which outperforms traditional codecs at the pixel level. It enables easy attainment of 1,000 times compression, and even 10,000 times in extreme cases.
-
-However, at such low bitrates, CMC presents two significant issues that cannot be overlooked. CMC-Bench is designed to evaluate : **(1) Consistency** between the distorted and reference image, **(2) Perecption** quality of the distorted image only. Thus, CMC-Bench is designed to identify where LMMs can be further optimized toward the compression task, thereby promote the evolution of visual signal codec protocols.
+**Why we do this?** Image quality assessment (IQA) of user-generated content (UGC) is a critical technique for human quality of experience (QoE). However, for robot-generated content (RGC), will its image quality be consistent with the Moravec paradox and counter to human common sense? Human subjective scoring is more based on the attractiveness of the image. Embodied agent are required to interact and perceive in the environment, and finally perform specific tasks. Visual images as inputs directly influence downstream tasks. In this paper, we first propose an embodied image quality assessment (EIQA) frameworks.
 
 ## Release
-- [2024/6/13] 🔥 [Github repo](https://github.com/Q-Future/CMC-Bench) for **CMC-Bench** is online. Follow the instruction to join the I2T or T2I model arena!!
-- [2024/6/11] 🔥 We release the **CMC-Bench** data and meta information at [Huggingface](https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench).
-- [To Do] [ ] Update the subjective label for quality assessment task.
-- [To Do] [ ] Update all interval image and text data for compression.
+- [2024/12/26] 🔥 [Github repo](https://github.com/Jianbo-maker/EPD_benchmark) for **EPD-Bench** is online.
+- [To Do] [ ] Expand richer data for datasets.
 
-## CMC-Bench Construction
-To provide a comprehensive and high-quality resource for various applications on the Internet, we carefully curated 1,000 images without compression distortion as the ground truth of CMC-Bench. Including 400 NSIs, 300 SCIs, and 300 AIGIs. The data selection and annoattion detail are attached in out paper.
+## EPD-Bench Construction
+In contrast to traditional IQA image collection methods, embodied AI requires interaction with the surrounding environment. The ultimate goal is robot-oriented image quality assessment, and thus, image collection is also done by the robot itself. Two classical reinforcement learning algorithms, the Proximal Policy Optimization (PPO) and the Soft Actor Critic (SAC), and a state-of-the-art method, TDMPC2, are used to perform the 2 tasks in the **SAPIEN** simulator, respectively. A monocular camera is used to capture RGB images as sensor data input to the model.
 
-We employ 6 I2T and 12 T2I models across four working modes. **(1) Text** mode with only T2I and I2T model; **(2) Pixel** mode with several pixels to guide T2I model; **(3) Image** mode with a compressed image as I2T guidance but without I2T model; **(4) Full** mode with all necessary information but most expenses. A I2T+T2I group will be evaluated in 4*2=8 dimensions.
+Based on a simulated environment **ManiSkill**, a robotic arm acts as an embodied intelligence to perform simple push and pick tasks. For the robot, different quality of image inputs have different impacts on the robot to complete the task, which is also directly related to the performance of the robot.
 
 <div align=center; style="width: 100%>
-      <img style="width:80%" src="fig/mode-all.png">
+      <img style="width:80%" src="figure/exp-imgs.png">
 </div>
 
 ## Leaderboard of CMC-Bench
