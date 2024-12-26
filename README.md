@@ -7,21 +7,19 @@
  <div>
       <a href="https://scholar.google.com/citations?hl=en&user=Eru2-TYAAAAJ" target="_blank">Jianbo Zhang</a><sup>1</sup>,
       <a href="https://lcysyzxdxc.github.io" target="_blank">Chunyi Li</a><sup>1</sup>,
-      <a href="" target="_blank">Liang Yuan</a><sup>2</sup><sup>*</sup>,
-      <a href="" target="_blank">Guoquan Zheng</a><sup>3</sup>,
-      <a href="" target="_blank">Jie Hao</a><sup>3</sup>,
+      <a href="" target="_blank">Liang Yuan</a><sup>1</sup><sup>*</sup>,
+      <a href="" target="_blank">Guoquan Zheng</a><sup>2</sup>,
+      <a href="" target="_blank">Jie Hao</a><sup>2</sup>,
       <a href="https://ee.sjtu.edu.cn/en/FacultyDetail.aspx?id=24&infoid=153&flag=153" target="_blank">Guangtao Zhai</a><sup>1</sup><sup>*</sup>,
  </div>
 
  <div>
-  <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>Nanyang Technological University
+  <sup>1</sup>Shanghai Jiaotong University,  <sup>2</sup>Beijing University of Chemical Technology
  </div> 
  <div>
   <sup>*</sup>Corresponding author. 
  </div>
- <a href="https://github.com/Q-Future/CMC-Bench/blob/main/CMC_Bench.pdf"><strong>Paper</strong></a> |
- <a href="https://github.com/Q-Future/CMC-Bench"><strong>Project Page</strong></a> |
- <a href="https://huggingface.co/datasets/lcysyzxdxc/CMC-Bench"><strong>Data</strong></a> 
+ 
  <div style="width: 100%; text-align: center; margin:auto;">
       <img style="width:60%" src="fig/spotlight.png">
  </div>
