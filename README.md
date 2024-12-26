@@ -21,7 +21,7 @@
  </div>
  
  <div style="width: 100%; text-align: center; margin:auto;">
-      <img style="width:60%" src="fig/spotlight.png">
+      <img style="width:60%" src="figure/Overflow.png">
  </div>
 </div>
 
