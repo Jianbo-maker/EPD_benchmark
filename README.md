@@ -36,7 +36,7 @@ In contrast to traditional IQA image collection methods, embodied AI requires in
 Based on a simulated environment **ManiSkill**, a robotic arm acts as an embodied intelligence to perform simple push and pick tasks. For the robot, different quality of image inputs have different impacts on the robot to complete the task, which is also directly related to the performance of the robot.
 
 <div align=center; style="width: 100%>
-      <img style="width:80%" src="figure/exp-imgs.png">
+      <img style="width:80%" src="figure/exp_imgs.png">
 </div>
 
 ## Leaderboard of CMC-Bench
