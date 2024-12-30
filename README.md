@@ -81,7 +81,7 @@ If you find our work interesting, please feel free to cite our paper:
       title={Embodied Image Quality Assessment for Robotic Intelligence}, 
       author={Jianbo Zhang, Chunyi Li, Liang Yuan, Guoquan Zheng, Jie Hao, Guangtao Zhai},
       year={2024},
-      ---------------------------------------------------------------------------------------eprint={2406.09356}---------------------------------------------------------,
+      eprint={2412.18774 },
       archivePrefix={arXiv}
 }
 ```
