@@ -77,11 +77,13 @@ Please contact any of the first authors of this paper for queries.
 If you find our work interesting, please feel free to cite our paper:
 
 ```bibtex
-@misc{li2024cmcbench,
+@misc{zhang2024embodiedimagequalityassessment,
       title={Embodied Image Quality Assessment for Robotic Intelligence}, 
-      author={Jianbo Zhang, Chunyi Li, Liang Yuan, Guoquan Zheng, Jie Hao, Guangtao Zhai},
+      author={Jianbo Zhang and Chunyi Li and Liang Yuan and Guoquan Zheng and Jie Hao and Guangtao Zhai},
       year={2024},
-      eprint={2412.18774 },
-      archivePrefix={arXiv}
+      eprint={2412.18774},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.18774}, 
 }
 ```
